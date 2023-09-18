@@ -1,0 +1,9 @@
+.header {
+  border-bottom: 1px solid #545454;
+  height: 74px;
+}
+
+.header__logo {
+  width: 173px;
+  height: 33px;
+}
