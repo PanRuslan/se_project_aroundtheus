@@ -1,0 +1,52 @@
+.user {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 30px;
+  height: 120px;
+  color: #fff;
+}
+
+.user__pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+
+.user__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
+}
+
+.user__name {
+  margin: 0;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 48px;
+}
+
+.user__name-changer {
+  background: transparent url("../images/pen.svg") center no-repeat;
+  border: 1px #fff solid;
+  border-radius: 0;
+  width: 24px;
+  height: 24px;
+}
+
+.user__status {
+  margin: 0;
+}
+
+.user__add-picture {
+  width: 150px;
+  height: 50px;
+  background: transparent url("../images/add-button.svg") center no-repeat;
+  border: 2px #fff solid;
+  border-radius: 0;
+  margin-left: auto;
+}

@@ -1,0 +1,35 @@
+.card {
+  margin: 0;
+  width: 282px;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card__pic {
+  display: block;
+  width: 282px;
+  height: 282px;
+}
+
+.card__wrapper {
+  padding-left: 20px;
+  padding-right: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 79px;
+}
+
+.card__title {
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.card__like-button {
+  padding: 0;
+  width: 21px;
+  height: 18px;
+  background: transparent url("../images/like-button.svg") center no-repeat;
+  border: none;
+}
