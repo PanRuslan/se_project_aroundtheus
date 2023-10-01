@@ -1,7 +1,10 @@
 .page {
   margin: 45px auto 60px;
+  padding-left: 10px;
+  padding-right: 10px;
   min-width: 320px;
-  max-width: 880px;
+  max-width: 900px;
+  box-sizing: border-box;
   font-family: "Inter", Arial, sans-serif;
   font-weight: normal;
   font-size: 18px;

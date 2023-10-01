@@ -1,9 +1,11 @@
 .user {
+  padding-top: 40px;
   display: flex;
   justify-content: start;
   align-items: center;
   gap: 30px;
-  height: 120px;
+  flex-wrap: wrap;
+  min-height: 120px;
   color: #fff;
 }
 
@@ -27,7 +29,10 @@
   align-items: center;
   font-weight: 500;
   font-size: 42px;
-  line-height: 48px;
+  line-height: 1.14;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .user__name-changer {
@@ -42,6 +47,20 @@
   margin: 0;
 }
 
+@media (max-width: 584px) {
+  .user {
+    justify-content: center;
+  }
+
+  .user__name {
+    font-size: 22px;
+  }
+
+  .user__info {
+    align-items: center;
+  }
+}
+
 .user__add-picture {
   width: 150px;
   height: 50px;
@@ -49,4 +68,11 @@
   border: 2px #fff solid;
   border-radius: 0;
   margin-left: auto;
+}
+
+@media (max-width: 764px) {
+  .user__add-picture {
+    margin: 0;
+    width: 100%;
+  }
 }
