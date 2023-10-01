@@ -43,6 +43,10 @@
   height: 24px;
 }
 
+.user__name-changer:hover {
+  opacity: 0.5;
+}
+
 .user__status {
   margin: 0;
 }
@@ -68,6 +72,10 @@
   border: 2px #fff solid;
   border-radius: 0;
   margin-left: auto;
+}
+
+.user__add-picture:hover {
+  opacity: 0.5;
 }
 
 @media (max-width: 764px) {

@@ -37,3 +37,7 @@
   background: transparent url("../images/like-button.svg") center no-repeat;
   border: none;
 }
+
+.card__like-button:hover {
+  opacity: 0.5;
+}
