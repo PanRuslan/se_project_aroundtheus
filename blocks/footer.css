@@ -3,3 +3,8 @@
   color: #545454;
   line-height: 1;
 }
+
+.footer__text {
+  margin: 0;
+  padding: 0;
+}

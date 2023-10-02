@@ -13,6 +13,7 @@
   width: 120px;
   height: 120px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .user__info {
@@ -44,7 +45,7 @@
 }
 
 .user__name-changer:hover {
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
 .user__status {
@@ -75,7 +76,7 @@
 }
 
 .user__add-picture:hover {
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
 @media (max-width: 764px) {

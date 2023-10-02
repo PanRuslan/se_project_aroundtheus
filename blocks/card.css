@@ -1,6 +1,6 @@
 .card {
   margin: 0;
-  width: 282px;
+  max-width: 282px;
   background-color: #fff;
   border-radius: 10px;
   overflow: hidden;
@@ -10,6 +10,7 @@
   display: block;
   width: 282px;
   height: 282px;
+  object-fit: cover;
 }
 
 .card__wrapper {
@@ -18,10 +19,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 79px;
+  min-height: 79px;
 }
 
 .card__title {
+  margin: 0;
   font-size: 24px;
   font-weight: 900;
   max-width: 211px;
