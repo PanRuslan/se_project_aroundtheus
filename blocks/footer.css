@@ -8,3 +8,14 @@
   margin: 0;
   padding: 0;
 }
+
+@media (max-width: 600px) {
+  .footer {
+    padding-top: 48px;
+  }
+
+  .footer__text {
+    line-height: 1.2;
+    font-size: 14px;
+  }
+}
