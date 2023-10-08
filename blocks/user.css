@@ -4,12 +4,13 @@
   justify-content: start;
   align-items: center;
   gap: 30px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   min-height: 120px;
   color: #fff;
 }
 
 .user__pic {
+  flex-shrink: 0;
   width: 120px;
   height: 120px;
   border-radius: 50%;
@@ -17,19 +18,24 @@
 }
 
 .user__info {
+  flex-shrink: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   height: 100%;
+  min-width: 100px;
+  max-width: 62%;
 }
 
 .user__wrapper {
   display: flex;
   gap: 18px;
   align-items: center;
+  width: 100%;
 }
 
 .user__name {
+  flex-shrink: 1;
   margin: 0;
   font-weight: 500;
   font-size: 42px;
@@ -37,10 +43,11 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  max-width: 100%;
+  max-width: 92%;
 }
 
 .user__name-changer {
+  flex-shrink: 0;
   background: transparent url("../images/pen.svg") center no-repeat;
   border: 1px #fff solid;
   border-radius: 0;
@@ -62,6 +69,7 @@
 }
 
 .user__add-picture {
+  flex-shrink: 0;
   width: 150px;
   height: 50px;
   background: transparent url("../images/add-button.svg") center no-repeat;
@@ -87,6 +95,7 @@
   .user__name-changer {
     width: 18px;
     height: 18px;
+    background-size: 7.5px;
   }
 
   .user__info {
@@ -99,6 +108,14 @@
 }
 
 @media (max-width: 764px) {
+  .user {
+    flex-wrap: wrap;
+  }
+
+  .user__info {
+    max-width: 70%;
+  }
+
   .user__add-picture {
     margin: 0;
     width: 100%;
