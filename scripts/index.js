@@ -25,41 +25,52 @@ const initialCards = [
   },
 ];
 
+const cardList = document.querySelector(".cards");
+const cardTemplate = cardList.querySelector("#card").content;
+
 function getCardElement(data) {
-  const cardList = document.querySelector(".cards");
-  const cardTemplate = cardList.querySelector("#card").content;
-  for (let card of data) {
-    const cardItem = cardTemplate.querySelector(".card").cloneNode(true);
-    cardItem.querySelector(".card__pic").src = card.link;
-    cardItem.querySelector(".card__pic").alt = card.name;
-    cardItem.querySelector(".card__title").textContent = card.name;
+  const cardItem = cardTemplate.querySelector(".card").cloneNode(true);
+  const cardImage = cardItem.querySelector(".card__pic");
+  cardImage.src = data.link;
+  cardItem.querySelector(".card__title").textContent = data.name;
+  cardImage.alt = data.name;
+  return cardItem;
+}
+
+function renderCards(cardsList) {
+  for (let card of cardsList) {
+    const cardItem = getCardElement(card);
     cardList.append(cardItem);
   }
 }
 
-getCardElement(initialCards);
+renderCards(initialCards);
 
 const userName = document.querySelector(".user__name");
 const userStatus = document.querySelector(".user__status");
 
 const nameChangeModal = document.querySelector(".modal");
-const userFieldsModal = nameChangeModal.querySelectorAll(".modal__text-input");
+const modalForm = document.forms["modal__form"];
+const userNameModal = modalForm["name"];
+const userStatusModal = modalForm["about-me"];
 const nameChanger = document.querySelector(".user__name-changer");
 nameChanger.addEventListener("click", function () {
   nameChangeModal.classList.toggle("modal_opened");
-  userFieldsModal[0].value = userName.textContent;
-  userFieldsModal[1].value = userStatus.textContent;
+  userNameModal.value = userName.textContent;
+  userStatusModal.value = userStatus.textContent;
 });
 
 const nameChangeModalCloser = nameChangeModal.querySelector(".modal__close");
-nameChangeModalCloser.addEventListener("click", function () {
-  nameChangeModal.classList.remove("modal_opened");
-});
 
-const modalSubmitButton = nameChangeModal.querySelector(".modal__submit");
-modalSubmitButton.addEventListener("click", function (event) {
-  event.preventDefault();
+function closeModal() {
   nameChangeModal.classList.remove("modal_opened");
-  userName.textContent = userFieldsModal[0].value;
-  userStatus.textContent = userFieldsModal[1].value;
+}
+
+nameChangeModalCloser.addEventListener("click", closeModal);
+
+nameChangeModal.addEventListener("submit", function (event) {
+  event.preventDefault();
+  closeModal();
+  userName.textContent = userNameModal.value;
+  userStatus.textContent = userStatusModal.value;
 });
