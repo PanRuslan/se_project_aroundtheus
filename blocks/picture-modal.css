@@ -1,18 +1,17 @@
 .picture-modal__container {
   position: relative;
   margin: 90px auto;
-  max-width: 70%;
   width: fit-content;
 }
 
 .picture-modal__figure {
   margin: 0 auto;
-  width: fit-content;
   text-align: center;
   overflow: auto;
 }
 
 .picture-modal__picture {
+  display: block;
   max-height: 75vh;
   max-width: 75vw;
 }
@@ -23,5 +22,13 @@
   text-align: left;
   font-family: "Inter", Arial, sans-serif;
   font-size: 12px;
+  line-height: 1.2;
   font-weight: 400;
+}
+
+@media (max-width: 600px) {
+  .picture-modal__close {
+    top: -30px;
+    right: -30px;
+  }
 }
