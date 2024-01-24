@@ -87,7 +87,7 @@ nameChangeModalCloser.addEventListener("click", closeNameChangeModal);
 
 nameChangeModal.addEventListener("submit", function (event) {
   event.preventDefault();
-  closeModal();
+  closeNameChangeModal();
   userName.textContent = userNameModal.value;
   userStatus.textContent = userStatusModal.value;
 });
