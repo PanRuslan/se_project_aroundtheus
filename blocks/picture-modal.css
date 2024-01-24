@@ -1,0 +1,27 @@
+.picture-modal__container {
+  position: relative;
+  margin: 90px auto;
+  max-width: 70%;
+  width: fit-content;
+}
+
+.picture-modal__figure {
+  margin: 0 auto;
+  width: fit-content;
+  text-align: center;
+  overflow: auto;
+}
+
+.picture-modal__picture {
+  max-height: 75vh;
+  max-width: 75vw;
+}
+
+.picture-modal__title {
+  padding-top: 10px;
+  color: #fff;
+  text-align: left;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+}

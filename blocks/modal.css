@@ -1,5 +1,9 @@
 .modal {
-  position: fixed;
+  display: block;
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.5s, opacity 0.5s;
   top: 0;
   left: 0;
   bottom: 0;
@@ -14,6 +18,9 @@
 
 .modal_opened {
   display: block;
+  position: fixed;
+  visibility: visible;
+  opacity: 1;
 }
 
 .modal__container {
