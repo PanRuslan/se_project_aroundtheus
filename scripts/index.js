@@ -25,6 +25,22 @@ const initialCards = [
   },
 ];
 
+function openPopup(target) {
+  target.classList.add("modal_opened");
+}
+
+function closePopup(target) {
+  target.classList.remove("modal_opened");
+}
+
+const closeButtons = document.querySelectorAll(".modal__close");
+closeButtons.forEach((button) => {
+  const modal = button.closest(".modal");
+  button.addEventListener("click", function () {
+    closePopup(modal);
+  });
+});
+
 //Cards rendering
 const cardList = document.querySelector(".cards");
 const cardTemplate = cardList.querySelector("#card").content;
@@ -34,7 +50,7 @@ function getCardElement(data) {
   const cardImage = cardItem.querySelector(".card__pic");
   const cardTitle = cardItem.querySelector(".card__title");
   cardImage.addEventListener("click", function () {
-    bigPictureModal.classList.toggle("modal_opened");
+    openPopup(bigPictureModal);
     pictureModal.src = cardImage.src;
     pictureModal.alt = cardTitle.textContent;
     pictureTitleModal.textContent = cardItem.textContent;
@@ -72,22 +88,14 @@ const userNameModal = nameChangeModalForm["name"];
 const userStatusModal = nameChangeModalForm["about-me"];
 const nameChanger = document.querySelector(".user__name-changer");
 nameChanger.addEventListener("click", function () {
-  nameChangeModal.classList.toggle("modal_opened");
+  openPopup(nameChangeModal);
   userNameModal.value = userName.textContent;
   userStatusModal.value = userStatus.textContent;
 });
 
-const nameChangeModalCloser = nameChangeModal.querySelector(".modal__close");
-
-function closeNameChangeModal() {
-  nameChangeModal.classList.remove("modal_opened");
-}
-
-nameChangeModalCloser.addEventListener("click", closeNameChangeModal);
-
 nameChangeModal.addEventListener("submit", function (event) {
   event.preventDefault();
-  closeNameChangeModal();
+  closePopup(nameChangeModal);
   userName.textContent = userNameModal.value;
   userStatus.textContent = userStatusModal.value;
 });
@@ -99,25 +107,16 @@ const titleModal = addCardModalForm["title"];
 const imageModal = addCardModalForm["image-link"];
 const imageAdder = document.querySelector(".user__add-picture");
 imageAdder.addEventListener("click", function () {
-  addCardModal.classList.toggle("modal_opened");
+  openPopup(addCardModal);
 });
-
-const addCardModalCloser = addCardModal.querySelector(".modal__close");
-
-function closeAddCardModal() {
-  addCardModal.classList.remove("modal_opened");
-}
-
-addCardModalCloser.addEventListener("click", closeAddCardModal);
 
 addCardModal.addEventListener("submit", function (event) {
   event.preventDefault();
-  closeAddCardModal();
-  let newCard = { name: titleModal.value, link: imageModal.value };
+  closePopup(addCardModal);
+  const newCard = { name: titleModal.value, link: imageModal.value };
   const cardItem = getCardElement(newCard);
   cardList.prepend(cardItem);
-  titleModal.value = "";
-  imageModal.value = "";
+  event.target.reset();
 });
 
 //Picture modal
@@ -126,10 +125,3 @@ const pictureModal = bigPictureModal.querySelector(".picture-modal__picture");
 const pictureTitleModal = bigPictureModal.querySelector(
   ".picture-modal__title"
 );
-const bigPictureModalCloser = bigPictureModal.querySelector(".modal__close");
-
-function closebigPictureModal() {
-  bigPictureModal.classList.remove("modal_opened");
-}
-
-bigPictureModalCloser.addEventListener("click", closebigPictureModal);
