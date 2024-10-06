@@ -86,12 +86,12 @@ function setEventListeners(form) {
   if (buttonElement !== null) {
     toggleButtonState(inputList, buttonElement);
   }
-  if (inputList !== null) {
-    addingValidation(inputList, buttonElement);
+  if (inputList.length > 0) {
+    addingValidation(form, inputList, buttonElement);
   }
 }
 
-function addingValidation(inputList, buttonElement) {
+function addingValidation(form, inputList, buttonElement) {
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", function () {
       checkInputValidity(form, inputElement);
