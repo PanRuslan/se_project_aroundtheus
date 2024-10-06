@@ -55,20 +55,32 @@
       <div class="modal__container">
         <form action="#" class="modal__form" name="name__form">
           <h2 class="modal__header">Edit profile</h2>
-          <input
-            type="text"
-            class="modal__text-input"
-            name="name"
-            placeholder="Name"
-            value="Jacques Cousteau"
-          />
-          <input
-            type="text"
-            class="modal__text-input"
-            name="about-me"
-            placeholder="About me"
-            value="Explorer"
-          />
+          <div>
+            <input
+              type="text"
+              class="modal__text-input"
+              id="name-input"
+              name="name"
+              placeholder="Name"
+              required
+              minlength="2"
+              maxlength="40"
+            />
+            <span class="modal__text-input-error name-input-error"></span>
+          </div>
+          <div>
+            <input
+              type="text"
+              class="modal__text-input"
+              id="about-me-input"
+              name="about-me"
+              placeholder="About me"
+              required
+              minlength="2"
+              maxlength="200"
+            />
+            <span class="modal__text-input-error about-me-input-error"></span>
+          </div>
           <button class="modal__submit" type="submit">Save</button>
         </form>
         <button class="modal__close"></button>
@@ -79,18 +91,30 @@
       <div class="modal__container">
         <form action="#" class="modal__form" name="new-card__form">
           <h2 class="modal__header">New place</h2>
-          <input
-            type="text"
-            class="modal__text-input"
-            name="title"
-            placeholder="Title"
-          />
-          <input
-            type="text"
-            class="modal__text-input"
-            name="image-link"
-            placeholder="Image link"
-          />
+          <div>
+            <input
+              type="text"
+              class="modal__text-input"
+              name="title"
+              id="title-input"
+              placeholder="Title"
+              required
+              minlength="1"
+              maxlength="30"
+            />
+            <span class="modal__text-input-error title-input-error"></span>
+          </div>
+          <div>
+            <input
+              type="url"
+              class="modal__text-input"
+              name="image-link"
+              id="image-link-input"
+              placeholder="Image link"
+              required
+            />
+            <span class="modal__text-input-error image-link-input-error"></span>
+          </div>
           <button class="modal__submit" type="submit">Create</button>
         </form>
         <button class="modal__close"></button>

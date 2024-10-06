@@ -41,6 +41,79 @@ closeButtons.forEach((button) => {
   });
 });
 
+function showInputError(form, inputElement, errorMessage) {
+  const errorElement = form.querySelector(`.${inputElement.id}-error`);
+  inputElement.classList.add("modal__text-input_error");
+  errorElement.textContent = errorMessage;
+}
+
+function hideInputError(form, inputElement) {
+  const errorElement = form.querySelector(`.${inputElement.id}-error`);
+  inputElement.classList.remove("modal__text-input_error");
+  errorElement.textContent = "";
+}
+
+function checkInputValidity(form, formElement) {
+  if (!formElement.validity.valid) {
+    showInputError(form, formElement, formElement.validationMessage);
+  } else {
+    hideInputError(form, formElement);
+  }
+}
+
+function closePopupByEscape(modal) {
+  document.addEventListener("keyup", function (evt) {
+    if (evt.key === "Escape") {
+      closePopup(modal);
+    }
+  });
+}
+
+function closePopupByClickingOutside(modal) {
+  modal.addEventListener("click", function (evt) {
+    if (evt.target.classList.contains("modal_opened")) {
+      closePopup(modal);
+    }
+  });
+}
+
+function setEventListeners(form) {
+  const modal = form.closest(".modal");
+  closePopupByEscape(modal);
+  closePopupByClickingOutside(modal);
+  const inputList = Array.from(form.querySelectorAll(".modal__text-input"));
+  const buttonElement = form.querySelector(".modal__submit");
+  if (buttonElement !== null) {
+    toggleButtonState(inputList, buttonElement);
+  }
+  if (inputList !== null) {
+    addingValidation(inputList, buttonElement);
+  }
+}
+
+function addingValidation(inputList, buttonElement) {
+  inputList.forEach((inputElement) => {
+    inputElement.addEventListener("input", function () {
+      checkInputValidity(form, inputElement);
+      toggleButtonState(inputList, buttonElement);
+    });
+  });
+}
+
+function hasInvalidInput(inputList) {
+  return inputList.some((inputElement) => {
+    return !inputElement.validity.valid;
+  });
+}
+
+function toggleButtonState(inputList, buttonElement) {
+  if (hasInvalidInput(inputList)) {
+    buttonElement.classList.add("modal__submit_inactive");
+  } else {
+    buttonElement.classList.remove("modal__submit_inactive");
+  }
+}
+
 //Cards rendering
 const cardList = document.querySelector(".cards");
 const cardTemplate = cardList.querySelector("#card").content;
@@ -54,6 +127,7 @@ function getCardElement(data) {
     pictureModal.src = cardImage.src;
     pictureModal.alt = cardTitle.textContent;
     pictureTitleModal.textContent = cardItem.textContent;
+    setEventListeners(bigPictureModal);
   });
   const cardLikeButton = cardItem.querySelector(".card__like-button");
   cardLikeButton.addEventListener("click", function () {
@@ -91,6 +165,7 @@ nameChanger.addEventListener("click", function () {
   openPopup(nameChangeModal);
   userNameModal.value = userName.textContent;
   userStatusModal.value = userStatus.textContent;
+  setEventListeners(nameChangeModalForm);
 });
 
 nameChangeModal.addEventListener("submit", function (event) {
@@ -108,6 +183,7 @@ const imageModal = addCardModalForm["image-link"];
 const imageAdder = document.querySelector(".user__add-picture");
 imageAdder.addEventListener("click", function () {
   openPopup(addCardModal);
+  setEventListeners(addCardModalForm);
 });
 
 addCardModal.addEventListener("submit", function (event) {

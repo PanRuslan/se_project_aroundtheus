@@ -59,7 +59,19 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  max-width: 100%;
+  width: 100%;
+}
+
+.modal__text-input_error {
+  border-bottom-color: #f00;
+}
+
+.modal__text-input-error {
+  justify-self: flex-start;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.2;
+  color: #f00;
 }
 
 .modal__submit {
@@ -79,6 +91,18 @@
 .modal__submit:hover {
   cursor: pointer;
   opacity: 0.6;
+}
+
+.modal__submit_inactive {
+  background-color: #fff;
+  opacity: 0.2;
+  color: #000;
+  border: 1px solid #000;
+}
+
+.modal__submit_inactive:hover {
+  cursor: default;
+  opacity: 0.2;
 }
 
 .modal__close {
